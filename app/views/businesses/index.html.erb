@@ -1,0 +1,11 @@
+<h1>All the businesses</h1>
+
+<% @businesses.each do |business|%>
+<li><%= link_to business.name, business_path(business) %>
+  
+    
+    <img src="#{business.img_url}">
+    
+
+</li>
+<% end %>

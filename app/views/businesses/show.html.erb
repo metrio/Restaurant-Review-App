@@ -1,0 +1,16 @@
+
+<h1><%= @business.name %></h1>
+
+<p><%= @business.location %></p>
+<p><a href="<%= @business.website_url %>"><%= @business.website_url %></a></p>
+<p><%= @business.phone_number %></p>
+
+<img src="<%= @business.img_url %>">
+
+
+
+<% @business.reviews.each do |review| %>
+    <p>Description:<%= review.description %></p>
+    <p>Covid Index Rating: <%= review.covid_index %></p>
+    <p>User: <%= review.user.name %></p>
+<% end %>

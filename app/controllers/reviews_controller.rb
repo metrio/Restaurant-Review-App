@@ -1,9 +1,9 @@
 class ReviewsController < ApplicationController
-    before_action :find_review, only [:edit, :update, :destroy]
+    before_action :find_review, only: [:edit, :update, :destroy]
 
 
     def new
-        @reviews = review.create
+        @review = Review.create
     end
 
     def create
@@ -25,6 +25,7 @@ class ReviewsController < ApplicationController
         #@review = Review.find(params[:id])
         if @review.update(review_params)
             redirect_to business_path(@review.business)
+        end
     end
 
     def destroy
@@ -42,4 +43,5 @@ class ReviewsController < ApplicationController
     def review_params
         params.require(:review).permit(:description, :covid_index, :business_id, :user_id)
     end
+
 end

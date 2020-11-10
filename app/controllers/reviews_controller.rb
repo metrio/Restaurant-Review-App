@@ -7,12 +7,12 @@ class ReviewsController < ApplicationController
     end
 
     def create
-        @review = review.create(review_params)
+        @review = Review.create(review_params)
         if @review.valid?
-            redirect_to review_path(@review)
+            redirect_to business_path(@review.business)
         else
             flash[:review_errors] = @review.errors.full_messages
-            redirect_to business_path(@review.business) 
+            redirect_to new_review_path(@review) 
         end
     end
     
@@ -31,7 +31,7 @@ class ReviewsController < ApplicationController
     def destroy
        # @review = Review.find(params[:id])
         @review.destroy
-        redirect_to business_path(@review.business)
+        redirect_to user_path(@review.user)
     end
 
     private 

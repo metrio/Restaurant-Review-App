@@ -10,7 +10,11 @@
 
 
 <% @business.reviews.each do |review| %>
+<li>
     <p>Description:<%= review.description %></p>
     <p>Covid Index Rating: <%= review.covid_index %></p>
     <p>User: <%= review.user.name %></p>
+    </li>
 <% end %>
+
+<%= button_to "Write a new Review", new_review_path, method: :get %>

@@ -8,5 +8,7 @@
     <p>Business: <%=link_to review.business.name, business_path(review.business) %></p>
     <p>Description:<%= review.description %></p>
     <p>Covid Index Rating: <%= review.covid_index %></p>
+    <p><%= button_to "Delete Review", review_path(review), method: :delete %></p>
+    <p><%= button_to "Update Review", edit_review_path(review), method: :get %></p>
     </li>
 <% end %>

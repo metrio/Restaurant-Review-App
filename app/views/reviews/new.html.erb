@@ -1,14 +1,4 @@
 
 
-<%= form_for @review do |f| %>
+<%= render "form" %>
 
-
-    <p><%= f.label :description %></p>
-    <p><%= f.text_area :description %></p>
-
-    <p><%= f.label :covid_index %></p>
-    <p><%= f.range_field :covid_index, in: 1..5 %></p>
-    
-    <%= f.submit %>
-
-<% end %>

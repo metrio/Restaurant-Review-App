@@ -12,9 +12,9 @@
 
     <p><%= f.label :covid_index %></p>
     <p><%= f.number_field :covid_index, max: 5 %></p>
-    
-   
-    
+
+     <%= f.hidden_field :user_id, value: session[:user_id] %>
+
     <p><%= f.collection_select :business_id, Business.all, :id, :name%></p>
     
     <%= f.submit %>

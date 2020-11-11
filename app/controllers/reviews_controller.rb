@@ -8,7 +8,7 @@ class ReviewsController < ApplicationController
 
 
     def create
-       review_params[:user_id] = session[:user_id]
+       
         @review = Review.create(review_params)
         if @review.valid?
             redirect_to business_path(@review.business)

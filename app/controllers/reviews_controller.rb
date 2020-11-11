@@ -1,12 +1,14 @@
 class ReviewsController < ApplicationController
     before_action :find_review, only: [:edit, :update, :destroy]
 
-
+    
     def new
         @review = Review.create
     end
 
+
     def create
+       review_params[:user_id] = session[:user_id]
         @review = Review.create(review_params)
         if @review.valid?
             redirect_to business_path(@review.business)
@@ -41,7 +43,7 @@ class ReviewsController < ApplicationController
     end
 
     def review_params
-        params.require(:review).permit(:description, :covid_index, :business_id, :user_id)
+       params.require(:review).permit(:description, :covid_index, :business_id, :user_it)
     end
 
 end

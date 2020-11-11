@@ -10,5 +10,6 @@ Rails.application.routes.draw do
   post '/sessions', to: 'sessions#create', as: 'login'
 
   root to: 'pages#home'
+   get '/pages/about' => 'pages#index' 
 
 end

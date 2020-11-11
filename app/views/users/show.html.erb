@@ -3,7 +3,7 @@
 
 
 
-<% @user.reviews.each do |review| %>
+<% @user.sorted_reviews.each do |review| %>
     <li>
     <p>Business: <%=link_to review.business.name, business_path(review.business) %></p>
     <p>Description:<%= review.description %></p>

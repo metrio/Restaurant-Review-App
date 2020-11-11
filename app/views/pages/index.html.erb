@@ -1,0 +1,25 @@
+ <li><%= link_to "Home", root_path %></li> 
+
+      <% if @current_user %>
+          <li class="right">Welcome, <%= @current_user.name %></li>
+          <li><%= link_to "Your Profile Page", user_path(@current_user.id) %></li>
+          <li><%= link_to "Add Review", new_review_path %></li>
+          <li class="right"><%= link_to "Log Out", logout_path, method: :delete %></li> 
+      <% else %>
+        <li class="right"><%= link_to "Sign Up", new_user_path %></li>
+      <% end %>
+
+<h1>Covid Safety Index</h1>
+
+<h3><p>Given the current state of our world, we have the goal to create a website where users can report on
+restaurants that are safe for them to venture you over to. In order to do that we are using
+a simple reporting system and using the total average from all the reviews to give an index
+number to each business reported.<p><h3>
+
+<ul>
+<li> 5 Means that this restaurant is very meticulous about how it interacts with its customers and ensures the safety of everyone from staff to customer. </li>
+<li> 4 Means that this restaurant is doing the best that it can give the situation its still doing really well but can make improvements </li>
+<li> 3 Means that there is plenty of work to be done here, either the staff is handling the saftey poorly or customers that frequent this spot don't adhere to social distancing rules </li>
+<li> 2 Means that we often hear that staff is not at all concerned about the safety of others and despite numerous issues arising ignores them</li>
+<li> 1 Means that there have been times where COVID-19 can be traced to this specific location, coming to this business is a hazard and should not be done unless absolutely necessary</li>
+</ul>

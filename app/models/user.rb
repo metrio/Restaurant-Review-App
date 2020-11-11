@@ -7,4 +7,8 @@ class User < ApplicationRecord
 
     has_secure_password
     
+
+    def sorted_reviews
+        self.reviews.reverse
+    end
 end

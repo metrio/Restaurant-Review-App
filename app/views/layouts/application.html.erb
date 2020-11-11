@@ -10,6 +10,7 @@
   </head>
 
   <body>
+      <%= image_tag("logos/website logo.png", width: '100px', length: '100px') %>
 
   <% if controller.controller_name != 'pages' %>
     <ul class="nav">
@@ -18,9 +19,10 @@
 
       <% if @current_user %>
           <li class="right">Welcome, <%= @current_user.name %></li>
-          <li class="right"><%= link_to "Log Out", logout_path, method: :delete %></li> 
+          <li><%= link_to "Your Profile Page", user_path(@current_user.id) %></li>
+          <li><%= link_to "About the COVID Index Numbers", pages_about_path %>
           <li><%= link_to "Add Review", new_review_path %></li>
-          
+          <li class="right"><%= link_to "Log Out", logout_path, method: :delete %></li> 
       <% else %>
         <li class="right"><%= link_to "Sign Up", new_user_path %></li>
       <% end %>

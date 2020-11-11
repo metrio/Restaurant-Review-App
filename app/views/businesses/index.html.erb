@@ -3,8 +3,9 @@
 <% @businesses.each do |business|%>
 <li><%= link_to business.name, business_path(business) %>
   
-    
-    <img src="<%= business.img_url %>">
+    <div class="thumbnail">
+        <img src="<%= business.img_url %>">
+    </div>
     
 
 </li>

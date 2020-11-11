@@ -1,15 +1,22 @@
 
-<h1><%= @business.name %></h1>
+<h1><%= @business.name %>  </h1>
+
+<h2>Average Covid Safety: <%= @business.avg_covid %> </h2>
 
 <p><%= @business.location %></p>
 <p><a href="<%= @business.website_url %>"><%= @business.website_url %></a></p>
 <p><%= @business.phone_number %></p>
 
-<img src="<%= @business.img_url %>">
+<p>
+<%= image_tag "https://maps.googleapis.com/maps/api/staticmap?zoom=17&size=400x300&markers=size:small%7Ccolor:red%7C#{@business.latitude},#{@business.longitude}&key=#{"AIzaSyBuRo_JREUcyWcyL7iH4AYSrA-XRqvlqgc"}", alt: "Map" %>
+</p>
+
+<div class="business-img">
+  <img src="<%= @business.img_url %>">
+</div>
 
 
-
-<% @business.reviews.each do |review| %>
+<% @business.sorted_reviews.each do |review| %>
 <li>
     <p>Description:<%= review.description %></p>
     <p>Covid Index Rating: <%= review.covid_index %></p>

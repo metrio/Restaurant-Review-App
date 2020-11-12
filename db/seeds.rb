@@ -10,7 +10,7 @@ Review.destroy_all
 Business.destroy_all
 User.destroy_all
 
-5.times do 
+50.times do 
     User.create(name: Faker::Name.unique.name, email: Faker::Internet.email, password_digest: Faker::Verb.base)
 end
 
@@ -27,6 +27,6 @@ superiority = Business.create(name: "Superiority Burger", location: "430 E 9th S
 
 
 
-30.times do
+90.times do
    Review.create(description: Faker::Restaurant.review, covid_index: rand(1..5), business_id: Business.all.sample.id, user_id: User.all.sample.id) 
 end

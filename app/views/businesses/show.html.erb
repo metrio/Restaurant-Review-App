@@ -16,7 +16,7 @@
 </div>
 
 
-<% @business.sorted_reviews.each do |review| %>
+<% @reviews.each do |review| %>
 <li>
     <p>Description:<%= review.description %></p>
     <p>Covid Index Rating: <%= review.covid_index %></p>
@@ -30,3 +30,5 @@
       <% else %>
         <ul>To leave a review of a restaurant please <%= link_to "Sign Up", new_user_path %></ul>
       <% end %>
+
+<%== pagy_nav(@pagy)  %>

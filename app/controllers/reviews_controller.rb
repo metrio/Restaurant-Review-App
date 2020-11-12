@@ -8,7 +8,6 @@ class ReviewsController < ApplicationController
 
 
     def create
-
         @review = Review.create(review_params)
         if @review.valid?
             redirect_to business_path(@review.business)

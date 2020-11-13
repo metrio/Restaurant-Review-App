@@ -18,6 +18,7 @@
    font-family: 'PT Sans Narrow', sans-serif;
    color: white;
  }
+
  .logo {
     display: flex;
     justify-content: center;
@@ -38,5 +39,9 @@
     display: flex;
     justify-content: space-around;
     padding: 50px;
-    
+ }
+
+ .nav_li a:hover {
+    background: #434343;
+    transition: 1s; 
  }

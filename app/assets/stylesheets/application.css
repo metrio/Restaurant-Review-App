@@ -14,14 +14,29 @@
  *= require_self
  */
 
+ body{
+   font-family: 'PT Sans Narrow', sans-serif;
+   color: white;
+ }
  .logo {
-     display: flex;
-     justify-content: center;
+    display: flex;
+    justify-content: center;
     position: relative;
     padding: 50px;
  }
 
+.nav_li a {
+   background-color: #F76C6C;
+   color: white;
+   display: inline-block;
+   padding: 14px 10px;
+   text-decoration: none;
+}
+
  .nav {
+    background-color: #374785; 
     display: flex;
     justify-content: space-around;
+    padding: 50px;
+    
  }

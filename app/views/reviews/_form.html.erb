@@ -4,19 +4,25 @@
     <% end %>
 <% end %>
 
-<%= form_for @review do |f| %>
+<div class="form-container">
 
+    <%= form_for @review do |f| %>
 
-    <p><%= f.label :description %></p>
-    <p><%= f.text_area :description %></p>
+        
+        <p><%= f.label :business_Name %></p>
+        <p><%= f.collection_select :business_id, Business.all, :id, :name%></p>
+        <br>
+        <p><%= f.label :description %></p>
+        <p><%= f.text_area :description %></p>
+        <br>
+        <p><%= f.label :covid_index %></p>
+        <p><%= f.number_field :covid_index, max: 5 %></p>
+        <br>
+        <%= f.hidden_field :user_id, value: session[:user_id] %>
 
-    <p><%= f.label :covid_index %></p>
-    <p><%= f.number_field :covid_index, max: 5 %></p>
-
-     <%= f.hidden_field :user_id, value: session[:user_id] %>
-
-    <p><%= f.collection_select :business_id, Business.all, :id, :name%></p>
-    
-    <%= f.submit %>
-
+        <br>
+        <%= f.submit %>
+        
     <% end %>
+
+</div>

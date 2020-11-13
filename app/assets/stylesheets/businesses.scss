@@ -7,7 +7,7 @@
 .thumbnail {
     overflow: hidden;
     height: 300px;
-    width: 450px;
+    width: 500px;
 }
 
 .thumbnail img {
@@ -17,6 +17,33 @@
 .business-img img{
     // overflow: hidden;
     height: 300px;
-    width: 400px;
+    width: 500px;
 }
 
+.business-media {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.business-show {
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.business-index {
+    margin-left: 10%;
+    margin-right: 10%;
+    text-align: left;
+}
+
+.business-index li{
+    display: flex;
+    justify-content: space-around;
+    align-content: space-around;
+    text-align: left;
+}
+
+.center {
+    text-align: center;
+}

@@ -1,39 +1,67 @@
 
-<h1><%= @business.name %>  </h1>
+<div class="business-show">
+  <h1><%= @business.name %>  </h1>
 
-<h2>Average Covid Safety: <%= @business.avg_covid %> </h2>
+  <h2>Average Covid Safety: <%case @business.avg_covid
 
-<p><%= @business.location %></p>
-<p><a href="<%= @business.website_url %>"><%= @business.website_url %></a></p>
-<p><%= @business.phone_number %></p>
+      when 5 %>
+      <%= image_tag("logos/green-test.png", width: '35px', length: '35px') %> 
 
-<p>
-<%= image_tag "https://maps.googleapis.com/maps/api/staticmap?zoom=17&size=400x300&markers=size:small%7Ccolor:red%7C#{@business.latitude},#{@business.longitude}&key=#{"AIzaSyBuRo_JREUcyWcyL7iH4AYSrA-XRqvlqgc"}", alt: "Map" %>
-</p>
+      <% when 4 %>
+      <%= image_tag("logos/test - 4.png", width: '35px', length: '35px') %> 
 
-<div class="business-img">
-  <img src="<%= @business.img_url %>">
-</div>
+      <% when 3 %>
+      <%= image_tag("logos/yellow-test.png", width: '35px', length: '35px') %> 
 
-<%= bar_chart @business.reviews.group(:covid_index).count, 
-    xtitle: "Count", ytitle: "Covid Index", width: "500px", height: "300px" %>
+      <% when 2 %>
+      <%= image_tag("logos/orange-test.png", width: '35px', length: '35px') %> 
 
+      <% when 1 %>
+      <%= image_tag("logos/red-test.png", width: '35px', length: '35px') %> 
 
-
-
-<% @reviews.each do |review| %>
-<li>
-    <p>Description:<%= review.description %></p>
-    <p>Covid Index Rating: <%= review.covid_index %></p>
-    <p>User: <%= review.user.name %></p>
-    </li>
-<% end %>
-
-
-<% if @current_user %>
-       <%= button_to "Write a new Review", new_review_path, method: :get %>
-      <% else %>
-        <ul>To leave a review of a restaurant please <%= link_to "Sign Up", new_user_path %></ul>
       <% end %>
 
-<%== pagy_nav(@pagy)  %>
+
+</h2>
+
+
+
+
+  <p><%= @business.location %></p>
+  <p><a href="<%= @business.website_url %>"><%= @business.website_url %></a></p>
+  <p><%= @business.phone_number %></p>
+
+  <div class=business-media>
+    <div class="business-img">
+      <img src="<%= @business.img_url %>">
+    </div>
+
+    <p>
+      <%= image_tag "https://maps.googleapis.com/maps/api/staticmap?zoom=17&size=500x300&markers=size:small%7Ccolor:red%7C#{@business.latitude},#{@business.longitude}&key=#{"AIzaSyBuRo_JREUcyWcyL7iH4AYSrA-XRqvlqgc"}", alt: "Map" %>
+    </p>
+
+    <%= bar_chart @business.reviews.group(:covid_index).count, 
+        xtitle: "Count", ytitle: "Covid Index", width: "500px", height: "300px" %>
+
+  </div>
+
+
+
+  <% @reviews.each do |review| %>
+  <li>
+      <p>Description:<%= review.description %></p>
+      <p>Covid Index Rating: <%= review.covid_index %></p>
+      <p>User: <%= review.user.name %></p>
+      </li>
+  <% end %>
+
+
+  <% if @current_user %>
+        <%= button_to "Write a new Review", new_review_path, method: :get %>
+        <% else %>
+          <ul>To leave a review of a restaurant please <%= link_to "Sign Up", new_user_path %></ul>
+        <% end %>
+
+  <%== pagy_nav(@pagy)  %>
+
+</div>

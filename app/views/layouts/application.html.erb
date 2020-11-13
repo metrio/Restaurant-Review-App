@@ -7,9 +7,16 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans+Narrow&display=swap" rel="stylesheet">
+ 
   </head>
 
-  <body>
+<body style="background-color:#A8D0E6;">
+<body font-family = "'PT Sans Narrow', sans-serif;">
+  
+  <body>  
       <div class="logo">
         <%= image_tag("logos/website logo.png", width: '200px', length: '200px') %>
       </div>
@@ -19,18 +26,19 @@
 <ul class="nav">
 
       <% if @current_user %>
-          <li class="right">Welcome, <%= @current_user.name %></li>
-          <li><%= link_to "Home", root_path %></li> 
-          <li><%= link_to "Your Profile Page", user_path(@current_user.id) %></li>
-          <li><%= link_to "About the COVID Index Numbers", pages_about_path %>
-          <li><%= link_to "Add Review", new_review_path %></li>
-          <li class="right"><%= link_to "Log Out", logout_path, method: :delete %></li> 
+          <ul>Welcome, <%= @current_user.name %></ul>
+          <ul class ="nav_li"><%= link_to "Home", root_path %></ul> 
+          <ul class ="nav_li"><%= link_to "Your Profile Page", user_path(@current_user.id) %></ul>
+          <ul class ="nav_li"><%= link_to "About the COVID Index Numbers", pages_about_path %></ul>
+          <ul class = "nav_li"><%= link_to "Add Review", new_review_path %></ul>
+          <ul class="nav_li"><%= link_to "Log Out", logout_path, method: :delete %></ul> 
       <% else %>
-          <li><%= link_to "Home", root_path %></li> 
-          <li> <%= link_to "Login", new_login_path, method: :get %></li>
-          <li class="right"><%= link_to "Sign Up", new_user_path %></li>
-          <li> <%= link_to "About the COVID Index Numbers", pages_about_path %></li>
+          <ul class= "nav_li" ><%= link_to "Home", root_path %></ul> 
+          <ul class = "nav_li"><%= link_to "Login", new_login_path, method: :get %></ul>
+          <ul class="nav_li"><%= link_to "Sign Up", new_user_path %></ul>
+          <ul class = "nav_li"><%= link_to "About the COVID Index Numbers", pages_about_path %></ul>
       <% end %>
+
    </ul>
 
  

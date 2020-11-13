@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   get '/sessions/new', to: 'sessions#new', as: 'new_login'
   post '/sessions', to: 'sessions#create', as: 'login'
 
-  root to: 'pages#home'
+  root to: 'businesses#index'
    get '/pages/about' => 'pages#index' 
 
 end

@@ -15,6 +15,11 @@
   <img src="<%= @business.img_url %>">
 </div>
 
+<%= bar_chart @business.reviews.group(:covid_index).count, 
+    xtitle: "Count", ytitle: "Covid Index", width: "500px", height: "300px" %>
+
+
+
 
 <% @reviews.each do |review| %>
 <li>

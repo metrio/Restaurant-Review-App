@@ -3,7 +3,7 @@
 
 
 
-<% @user.sorted_reviews.each do |review| %>
+<% @reviews.each do |review| %>
     <li>
     <p>Business: <%=link_to review.business.name, business_path(review.business) %></p>
     <p>Description:<%= review.description %></p>
@@ -14,3 +14,5 @@
 <% end %>
 
 <%= link_to "Log Out", logout_path, method: :delete %>
+
+<%== pagy_nav(@pagy)  %>

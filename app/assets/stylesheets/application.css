@@ -35,6 +35,13 @@
 
  .nav {
     background-color: #374785; 
+   padding: 14px 10px;
+   text-decoration: none;
+}
+
+
+ .nav {
+    background-color: #374785; 
     display: flex;
     justify-content: space-around;
     padding: 50px;

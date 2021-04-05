@@ -2,17 +2,12 @@ class SessionsController < ApplicationController
 skip_before_action :authorization, only: [:new, :create]
 
 
-    def destroy
+
+    def logout
         session.delete(:user_id)
         
-        redirect_to root_path
+        redirect_to businesses_path
     end
-
-    # def logout
-    #     session.delete(:user_id)
-        
-    #     redirect_to businesses_path
-    # end
 
     def new 
 
@@ -21,7 +16,6 @@ skip_before_action :authorization, only: [:new, :create]
 
     def create
         user = User.find_by(email: params[:session][:email]) 
-        business = Business.find_by(name: params[:session][:name])
         
         if user && user.authenticate(params[:session][:password])
             session[:user_id] = user.id
